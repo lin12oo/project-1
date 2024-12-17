@@ -1,0 +1,86 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("1st number");
+        double x = sc.nextDouble();
+
+        System.out.print("2nd number");
+        double y = sc.nextDouble();
+
+        menu();
+        int choice = sc.nextInt();
+
+        double result = 0;
+        switch (choice) {
+            case 1:
+                result = mul(x, y);
+                break;
+            case 2:
+                result = div(x, y);
+                break;
+            case 3:
+                result = sub(x, y);
+                break;
+            case 4:
+                result = add(x, y);
+                break;
+            default:
+                System.out.println("wrong action");
+                break;
+        }
+
+        clearScreen();
+        ans(choice, x, y, result);
+
+        
+        
+    }
+        public static void menu() {
+            System.out.println("1- Multiplication");
+            System.out.println("2- Division");
+            System.out.println("3- Subtraction");
+            System.out.println("4- Addition");
+        }
+        public static void clearScreen(){
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+        }
+    public static double add(double x ,double y){
+        return x+y;
+    }
+    public static double sub(double x ,double y){
+        return x-y;
+    }
+    public static double mul(double x ,double y){
+        return x*y;
+    }
+    public static double div(double x, double y) {
+        if (y == 0) {
+            System.out.println("Error");
+            return 0; }
+        else {
+            return x / y;
+        }
+        }
+        public static void ans(int choice, double x, double y, double result) {
+            String operation = "";
+            switch (choice) {
+                case 1:
+                    operation = "*";
+                    break;
+                case 2:
+                    operation = "/";
+                    break;
+                case 3:
+                    operation = "-";
+                    break;
+                case 4:
+                    operation = "+";
+                    break;
+            }
+            System.out.println(x + " " + operation + " " + y + " = " + result);
+        }
+    
+}
